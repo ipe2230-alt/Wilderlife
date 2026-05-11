@@ -1,69 +1,223 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>2026 白馬三山縱走｜Wilderlife</title><style>
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 白馬三山縱走｜Wilderlife</title><style>
 :root{
-  --forest:#18251d;--olive:#6f7c38;--cream:#f6f0e5;--paper:#fffaf0;
-  --text:#1d241f;--muted:#6f746c;--line:rgba(24,37,29,.16);--dark:#101610;
+  --forest:#111c15;
+  --forest2:#1b2b20;
+  --olive:#747f3d;
+  --moss:#536141;
+  --cream:#f6f1e7;
+  --paper:#fffaf1;
+  --text:#1c241f;
+  --muted:#70776e;
+  --line:rgba(17,28,21,.14);
+  --white:#fff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--cream);color:var(--text);line-height:1.8}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.8;
+  letter-spacing:.01em;
+}
 a{text-decoration:none;color:inherit}
-.container{width:min(1160px,90%);margin:auto}
-.nav{position:fixed;top:0;left:0;width:100%;z-index:50;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,0));color:white}
-.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}
-.logo-img{width:95px;filter:invert(1) brightness(1.8)}
-.nav-links{display:flex;gap:24px;font-size:14px;font-weight:800;letter-spacing:.04em;align-items:center}
-.nav-cta{background:var(--olive);padding:10px 18px}
-.hero{min-height:88vh;color:white;display:flex;align-items:center;background-position:center;background-size:cover;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.18),rgba(0,0,0,.34))}
-.hero-content{position:relative;z-index:1;width:min(900px,90%);margin-left:7%;padding-top:70px}
-.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.16;letter-spacing:-.04em;margin-bottom:22px;text-shadow:0 4px 24px rgba(0,0,0,.28)}
-.hero p{font-size:clamp(17px,2vw,22px);max-width:760px;margin-bottom:32px}
+img{display:block;max-width:100%}
+.container{width:min(1180px,90%);margin:auto}
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:50;
+  background:linear-gradient(to bottom,rgba(0,0,0,.58),rgba(0,0,0,.16),rgba(0,0,0,0));
+  color:white;
+}
+.nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo-img{width:104px;filter:invert(1) brightness(2)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:800;letter-spacing:.05em}
+.nav-links a{opacity:.92}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:rgba(116,127,61,.9);padding:10px 18px;border:1px solid rgba(255,255,255,.22)}
+.hero{
+  min-height:100vh;
+  color:white;
+  display:flex;
+  align-items:flex-end;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero.short{min-height:66vh}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.20),rgba(0,0,0,.32)),
+    linear-gradient(to top,rgba(0,0,0,.68),rgba(0,0,0,0) 58%);
+}
+.hero-content{
+  position:relative;z-index:1;
+  width:min(940px,90%);
+  margin-left:7%;
+  padding:0 0 92px;
+}
+.hero.center .hero-content{margin:0 auto;text-align:center}
+.eyebrow{
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:900;
+  color:var(--olive);
+  margin-bottom:12px;
+}
+.hero .eyebrow{color:rgba(255,255,255,.86)}
+h1{
+  font-size:clamp(44px,7vw,88px);
+  line-height:1.08;
+  letter-spacing:-.055em;
+  margin-bottom:22px;
+}
+h2{
+  font-size:clamp(30px,4vw,52px);
+  line-height:1.22;
+  letter-spacing:-.04em;
+  color:var(--forest);
+  margin-bottom:18px;
+}
+h3{color:var(--forest);line-height:1.35}
+.hero p{
+  font-size:clamp(17px,2vw,22px);
+  max-width:780px;
+  margin-bottom:32px;
+  color:rgba(255,255,255,.88);
+}
+.hero.center p{margin-left:auto;margin-right:auto}
 .btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;font-weight:900;border:1px solid rgba(255,255,255,.72);color:white}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:0 26px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.72);
+  color:white;
+  transition:.22s ease;
+}
+.btn:hover{transform:translateY(-2px)}
 .btn.primary{background:var(--olive);border-color:var(--olive)}
 .btn.dark{background:var(--forest);border-color:var(--forest)}
-section{padding:88px 0}
-.section-title{text-align:center;margin-bottom:42px}
-.eyebrow{font-size:14px;letter-spacing:.12em;color:var(--olive);font-weight:900;margin-bottom:8px;text-transform:uppercase}
-h2{font-size:clamp(30px,4vw,48px);line-height:1.25;color:var(--forest)}
-.lead{color:var(--muted);font-size:18px;max-width:780px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+section{padding:96px 0}
+.section-title{text-align:center;margin-bottom:46px}
+.lead{font-size:18px;color:var(--muted);max-width:790px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:white;border:1px solid rgba(0,0,0,.08);box-shadow:0 16px 38px rgba(24,37,29,.06)}
-.card img{width:100%;height:260px;object-fit:cover}
-.card-body{padding:28px}
-.card h3{font-size:25px;color:var(--forest);margin-bottom:8px}
-.card p{color:var(--muted)}
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.tag{background:rgba(111,124,56,.13);color:var(--forest);padding:6px 12px;font-weight:800;font-size:14px}
-.price{font-size:32px;font-weight:950;color:var(--forest);margin:10px 0}
+.editorial-img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+}
+.statement{
+  background:var(--forest);
+  color:white;
+}
+.statement h2{color:white}
+.statement .lead{color:rgba(255,255,255,.76)}
+.full-bleed{
+  height:86vh;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.full-bleed::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.48),rgba(0,0,0,.04));
+}
+.full-caption{
+  position:absolute;left:7%;bottom:64px;z-index:2;color:white;max-width:620px;
+}
+.full-caption h2{color:white}
 .info-box{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.info-list{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--line)}
-.info-item{padding:26px;border-right:1px solid var(--line)}
-.info-item b{display:block;color:var(--forest);font-size:18px}
+.info-list{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}
+.info-item{padding:30px;border-right:1px solid var(--line)}
+.info-item b{display:block;font-size:19px;color:var(--forest)}
 .info-item span{color:var(--muted)}
-.itinerary{display:grid;gap:16px}
-.day{background:white;border-left:5px solid var(--olive);padding:22px 24px}
-.day b{color:var(--forest)}
+.card{
+  background:white;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 18px 45px rgba(17,28,21,.06);
+}
+.card img{width:100%;height:330px;object-fit:cover}
+.card-body{padding:30px}
+.card h3{font-size:26px;margin-bottom:10px}
+.card p{color:var(--muted)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.tag{background:rgba(116,127,61,.13);color:var(--forest);padding:6px 12px;font-weight:900;font-size:13px}
+.price{font-size:32px;font-weight:950;color:var(--forest);margin:14px 0 20px}
+.trip-feature{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:0;
+  background:white;
+  border:1px solid rgba(0,0,0,.08);
+  margin-bottom:34px;
+}
+.trip-feature img{width:100%;height:520px;object-fit:cover}
+.trip-feature-body{padding:54px;display:flex;flex-direction:column;justify-content:center}
+.trip-feature-body h3{font-size:42px;letter-spacing:-.04em;margin-bottom:12px}
+.trip-feature-body p{color:var(--muted);font-size:18px;margin-bottom:24px}
+.journal-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+.journal-grid img{width:100%;height:100%;object-fit:cover}
+.journal-stack{display:grid;gap:20px}
+.journal-main{height:640px}
+.journal-small{height:310px}
+.itinerary{display:grid;gap:18px}
+.day{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:22px;
+  background:white;
+  border-left:5px solid var(--olive);
+  padding:24px 28px;
+}
+.day b{font-size:20px;color:var(--forest)}
+.day p{color:var(--muted)}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.panel{background:white;padding:30px;border:1px solid rgba(0,0,0,.08)}
-.panel h3{font-size:24px;color:var(--forest);margin-bottom:14px}
+.panel{background:white;padding:34px;border:1px solid rgba(0,0,0,.08)}
+.panel h3{font-size:25px;margin-bottom:16px}
 .panel ul{padding-left:20px;color:var(--muted)}
 .dark-section{background:var(--forest);color:white}
 .dark-section h2{color:white}
-.dark-section .lead{color:rgba(255,255,255,.78)}
-.checks{display:grid;gap:10px}
-.check::before{content:"✓";color:#cfd79a;margin-right:10px}
-.warn::before{content:"•";color:var(--olive);margin-right:10px}
-.footer{background:#111;color:rgba(255,255,255,.65);padding:22px 0;text-align:center;font-size:13px}
+.dark-section .lead{color:rgba(255,255,255,.76)}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.g-wide{grid-column:span 7;height:440px}
+.g-tall{grid-column:span 5;height:440px}
+.g-third{grid-column:span 4;height:310px}
 .back{position:fixed;right:18px;bottom:18px;background:var(--forest);color:white;padding:12px 16px;font-weight:900;z-index:20}
+.footer{background:#0b0f0c;color:rgba(255,255,255,.62);padding:24px 0;text-align:center;font-size:13px}
 @media(max-width:900px){
-  .nav-links{display:none}.grid-2,.grid-3,.two-col{grid-template-columns:1fr}
-  .info-list{grid-template-columns:1fr;border-left:none}.info-item{border-right:none;border-bottom:1px solid var(--line)}
-  .hero-content{margin:auto}.hero{min-height:82vh}.card img{height:220px}
+  .nav-links{display:none}
+  .grid-2,.grid-3,.two-col,.trip-feature,.journal-grid{grid-template-columns:1fr}
+  .trip-feature img,.editorial-img,.journal-main,.journal-small{height:340px}
+  .trip-feature-body{padding:32px}
+  .trip-feature-body h3{font-size:32px}
+  .info-list{grid-template-columns:1fr;border-left:none}
+  .info-item{border-right:none;border-bottom:1px solid var(--line)}
+  .day{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .g-wide,.g-tall,.g-third{grid-column:auto;height:300px}
+  .hero-content{margin:auto;padding-bottom:70px}
+  .btn{width:100%}
 }
 </style></head>
 <body>
+
 <nav class="nav">
   <div class="container nav-inner">
     <a href="index.html"><img class="logo-img" src="assets/wilderlife-logo.png" alt="Wilderlife Logo"></a>
@@ -77,7 +231,7 @@ h2{font-size:clamp(30px,4vw,48px);line-height:1.25;color:var(--forest)}
   </div>
 </nav>
 
-<header class="hero" style="background-image:url('assets/mountain-clouds.jpg')">
+<header class="hero" style="background-image:url('assets/hakuba-hero-ridge-cloud.jpg')">
   <div class="hero-content">
     <div class="eyebrow">2026 Summer Route</div>
     <h1>白馬三山縱走</h1>
@@ -91,25 +245,44 @@ h2{font-size:clamp(30px,4vw,48px);line-height:1.25;color:var(--forest)}
   <div class="info-item"><b>費用</b><span>NT$ 29,000</span></div>
   <div class="info-item"><b>訂金</b><span>先收 50% 訂金</span></div>
 </div></section>
+
 <section><div class="container grid-2">
   <div><div class="eyebrow">Highlight</div><h2>雲端山莊、白馬大池與稜線溫泉，一次收進四天行程。</h2><p class="lead">搭纜車至 1,900 公尺起登，走過開闊濕原與白馬大池，再入住白馬山莊。最後沿白馬三山稜線前往白馬鑓溫泉，在山谷與星空旁泡湯，作為縱走後的獎勵。</p></div>
-  <img src="assets/mountain-clouds.jpg" style="width:100%;height:430px;object-fit:cover" alt="白馬三山縱走">
+  <img class="editorial-img" src="assets/hakuba-lodge-person.jpg" alt="白馬山莊">
 </div></section>
+
+<div class="full-bleed" style="background-image:url('assets/hakuba-ridge.jpg')">
+  <div class="full-caption"><div class="eyebrow">Ridge Walk</div><h2>走在天空與岩稜之間。</h2><p>白馬稜線開闊而壯麗，每一步都能看見雲影、山屋與遠方連綿的北阿爾卑斯。</p></div>
+</div>
+
 <section class="info-box"><div class="container">
   <div class="section-title"><div class="eyebrow">Itinerary</div><h2>行程表</h2></div>
   <div class="itinerary">
-    <div class="day"><b>D1｜白馬車站集合 → 栂池自然園起登 1900m → 白馬大池山莊</b></div>
-    <div class="day"><b>D2｜白馬大池山莊 → 白馬岳 → 白馬山莊</b></div>
-    <div class="day"><b>D3｜白馬山莊 → 杓子岳 2812m → 白馬鑓ヶ岳 2903m → 白馬鑓溫泉小屋</b></div>
-    <div class="day"><b>D4｜白馬鑓溫泉小屋 → 猿倉登山口 → 白馬車站解散</b></div>
+    <div class="day"><b>D1</b><p><strong>白馬車站集合 → 栂池自然園起登 1900m → 白馬大池山莊</strong><br>進入高山濕原與大池營地，讓身體慢慢適應山上的節奏。</p></div>
+    <div class="day"><b>D2</b><p><strong>白馬大池山莊 → 白馬岳 → 白馬山莊</strong><br>沿著開闊稜線前進，抵達日本最大級山屋之一的白馬山莊。</p></div>
+    <div class="day"><b>D3</b><p><strong>白馬山莊 → 杓子岳 2812m → 白馬鑓ヶ岳 2903m → 白馬鑓溫泉小屋</strong><br>完成白馬三山主稜縱走，最後下切至山谷溫泉。</p></div>
+    <div class="day"><b>D4</b><p><strong>白馬鑓溫泉小屋 → 猿倉登山口 → 白馬車站解散</strong><br>從高山回到山麓，帶著四天的稜線記憶結束旅程。</p></div>
   </div>
 </div></section>
+
+<section><div class="container">
+  <div class="gallery">
+    <img class="g-wide" src="assets/hakuba-lodge-cloud.jpg" alt="白馬山莊雲海">
+    <img class="g-tall" src="assets/hakuba-raicho.jpg" alt="白馬雷鳥">
+    <img class="g-third" src="assets/hakuba-valley-walk.jpg" alt="山谷行走">
+    <img class="g-third" src="assets/hakuba-camp.jpg" alt="白馬大池營地">
+    <img class="g-third" src="assets/hakuba-lake-morning.jpg" alt="白馬大池晨光">
+  </div>
+</div></section>
+
 <section><div class="container two-col">
   <div class="panel"><h3>行程特色</h3><ul><li>栂池自然園與白馬大池</li><li>白馬山莊 Sky Plaza 景觀體驗</li><li>杓子岳、白馬鑓ヶ岳稜線縱走</li><li>白馬鑓溫泉野溪泡湯</li></ul></div>
   <div class="panel"><h3>報名須知</h3><ul><li>費用不含國際機票、至集合地交通與保險</li><li>部分交通需乘坐大眾交通工具</li><li>山屋飲食不提供素食，僅提供白飯</li><li>本行程僅開放匯款</li></ul></div>
 </div></section>
+
 <section class="dark-section"><div class="container grid-2">
   <div><h2>今年夏天，跟我們一起去白馬山散散步。</h2><p class="lead">想了解精緻包團或預約其他日期，也可以直接私訊討論。</p></div>
   <div class="btns"><a class="btn primary" href="https://docs.google.com/forms/d/1LjTWdJTfFTmSTRN3edRzNg6zOK2PsZYnmAzKv-oO7I0/viewform" target="_blank">前往 Google 表單報名</a></div>
 </div></section>
-<a class="back" href="products.html">行程列表</a><footer class="footer">© 2026 WILDERLIFE 山林生活工作室｜All Rights Reserved.</footer></body></html>
+<a class="back" href="products.html">行程列表</a><footer class="footer">© 2026 WILDERLIFE 山林生活工作室｜All Rights Reserved.</footer>
+</body></html>
