@@ -49,6 +49,7 @@ img{display:block;max-width:100%}
   position:relative;
   overflow:hidden;
 }
+.hero.short{min-height:66vh}
 .hero::before{
   content:"";
   position:absolute;inset:0;
@@ -62,6 +63,7 @@ img{display:block;max-width:100%}
   margin-left:7%;
   padding:0 0 92px;
 }
+.hero.center .hero-content{margin:0 auto;text-align:center}
 .eyebrow{
   font-size:13px;
   letter-spacing:.16em;
@@ -84,12 +86,14 @@ h2{
   color:var(--forest);
   margin-bottom:18px;
 }
+h3{color:var(--forest);line-height:1.35}
 .hero p{
   font-size:clamp(17px,2vw,22px);
   max-width:780px;
   margin-bottom:32px;
   color:rgba(255,255,255,.88);
 }
+.hero.center p{margin-left:auto;margin-right:auto}
 .btns{display:flex;gap:14px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
@@ -101,6 +105,7 @@ h2{
 }
 .btn:hover{transform:translateY(-2px)}
 .btn.primary{background:var(--olive);border-color:var(--olive)}
+.btn.dark{background:var(--forest);border-color:var(--forest)}
 section{padding:96px 0}
 .section-title{text-align:center;margin-bottom:46px}
 .lead{font-size:18px;color:var(--muted);max-width:790px}
@@ -117,6 +122,38 @@ section{padding:96px 0}
 }
 .statement h2{color:white}
 .statement .lead{color:rgba(255,255,255,.76)}
+.full-bleed{
+  height:86vh;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.full-bleed::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.48),rgba(0,0,0,.04));
+}
+.full-caption{
+  position:absolute;left:7%;bottom:64px;z-index:2;color:white;max-width:620px;
+}
+.full-caption h2{color:white}
+.info-box{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.info-list{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}
+.info-item{padding:30px;border-right:1px solid var(--line)}
+.info-item b{display:block;font-size:19px;color:var(--forest)}
+.info-item span{color:var(--muted)}
+.card{
+  background:white;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 18px 45px rgba(17,28,21,.06);
+}
+.card img{width:100%;height:330px;object-fit:cover}
+.card-body{padding:30px}
+.card h3{font-size:26px;margin-bottom:10px}
+.card p{color:var(--muted)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.tag{background:rgba(116,127,61,.13);color:var(--forest);padding:6px 12px;font-weight:900;font-size:13px}
+.price{font-size:32px;font-weight:950;color:var(--forest);margin:14px 0 20px}
 .trip-feature{
   display:grid;
   grid-template-columns:1.05fr .95fr;
@@ -129,17 +166,55 @@ section{padding:96px 0}
 .trip-feature-body{padding:54px;display:flex;flex-direction:column;justify-content:center}
 .trip-feature-body h3{font-size:42px;letter-spacing:-.04em;margin-bottom:12px}
 .trip-feature-body p{color:var(--muted);font-size:18px;margin-bottom:24px}
-.price{font-size:32px;font-weight:950;color:var(--forest);margin:14px 0 20px}
+.journal-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+.journal-grid img{width:100%;height:100%;object-fit:cover}
+.journal-stack{display:grid;gap:20px}
+.journal-main{height:640px}
+.journal-small{height:310px}
+.itinerary{display:grid;gap:18px}
+.day{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:22px;
+  background:white;
+  border-left:5px solid var(--olive);
+  padding:24px 28px;
+}
+.day b{font-size:20px;color:var(--forest)}
+.day p{color:var(--muted)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:white;padding:34px;border:1px solid rgba(0,0,0,.08)}
+.panel h3{font-size:25px;margin-bottom:16px}
+.panel ul{padding-left:20px;color:var(--muted)}
 .dark-section{background:var(--forest);color:white}
 .dark-section h2{color:white}
 .dark-section .lead{color:rgba(255,255,255,.76)}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.g-wide{grid-column:span 7;height:440px}
+.g-tall{grid-column:span 5;height:440px}
+.g-third{grid-column:span 4;height:310px}
+.back{position:fixed;right:18px;bottom:18px;background:var(--forest);color:white;padding:12px 16px;font-weight:900;z-index:20}
 .footer{background:#0b0f0c;color:rgba(255,255,255,.62);padding:24px 0;text-align:center;font-size:13px}
 @media(max-width:900px){
   .nav-links{display:none}
-  .grid-2,.grid-3,.trip-feature{grid-template-columns:1fr}
-  .trip-feature img,.editorial-img{height:340px}
+  .grid-2,.grid-3,.two-col,.trip-feature,.journal-grid{grid-template-columns:1fr}
+  .trip-feature img,.editorial-img,.journal-main,.journal-small{height:340px}
   .trip-feature-body{padding:32px}
   .trip-feature-body h3{font-size:32px}
+  .info-list{grid-template-columns:1fr;border-left:none}
+  .info-item{border-right:none;border-bottom:1px solid var(--line)}
+  .day{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .g-wide,.g-tall,.g-third{grid-column:auto;height:300px}
   .hero-content{margin:auto;padding-bottom:70px}
   .btn{width:100%}
 }
@@ -149,7 +224,7 @@ section{padding:96px 0}
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="index.html"><img class="logo-img" src="wilderlife-logo.png" alt="Wilderlife Logo"></a>
+    <a href="index.html"><img class="logo-img" src="assets/wilderlife-logo.png" alt="Wilderlife Logo"></a>
     <div class="nav-links">
       <a href="index.html">首頁</a>
       <a href="products.html">行程商品</a>
@@ -160,18 +235,18 @@ section{padding:96px 0}
   </div>
 </nav>
 
-<header class="hero" style="background-image:url('camp-placeholder.jpg')">
+<header class="hero" style="background-image:url('assets/hakuba-solo-cloud.jpg')">
   <div class="hero-content">
     <div class="eyebrow">Wilderlife Outdoor Studio</div>
-    <h1>不是征服山，<br>走進山裡生活。</h1>
+    <h1>不是征服山，<br>而是走進山裡生活。</h1>
     <p>我們提供日本山岳行程、戶外活動企劃與客製化包團，用專業規劃與夥伴節奏，帶你走進真正值得記住的山林時間。</p>
-    <div class="btns"><a class="btn primary" href="products.html">查看山岳行程</a></div>
+    <div class="btns"><a class="btn primary" href="products.html">查看山岳行程</a><a class="btn" href="#journal">觀看山岳誌</a></div>
   </div>
 </header>
 
 <section>
   <div class="container grid-2">
-    <img class="editorial-img" src="mountain-clouds.jpg" alt="山岳誌">
+    <img class="editorial-img" src="assets/hakuba-lake-camp.jpg" alt="白馬大池營地">
     <div>
       <div class="eyebrow">About Us</div>
       <h2>戶外不是逃離生活，而是重新感受生活。</h2>
@@ -188,15 +263,30 @@ section{padding:96px 0}
   </div>
 </section>
 
+<section id="journal">
+  <div class="container">
+    <div class="section-title">
+      <div class="eyebrow">Mountain Journal</div>
+      <h2>山裡的時間，會留下自己的形狀。</h2>
+    </div>
+    <div class="journal-grid">
+      <img class="journal-main" src="assets/hakuba-valley-walk.jpg" alt="白馬山谷行走">
+      <div class="journal-stack">
+        <img class="journal-small" src="assets/hakuba-raicho.jpg" alt="雷鳥">
+        <img class="journal-small" src="assets/hakuba-lake-morning.jpg" alt="白馬大池晨光">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <div class="section-title">
       <div class="eyebrow">Trips</div>
       <h2>2026 日本山岳行程</h2>
     </div>
-    
     <div class="trip-feature">
-      <img src="mountain-clouds.jpg" alt="上高地槍岳賞楓">
+      <img src="assets/kamikochi-hero-title.jpg" alt="上高地槍岳賞楓">
       <div class="trip-feature-body">
         <div class="eyebrow">Autumn Route</div>
         <h3>上高地槍岳賞楓</h3>
@@ -205,9 +295,8 @@ section{padding:96px 0}
         <div class="btns"><a class="btn dark" href="kamikochi-yarigatake.html">View Journey</a></div>
       </div>
     </div>
-
     <div class="trip-feature">
-      <img src="hero-maple.jpg" alt="白馬三山縱走">
+      <img src="assets/hakuba-lodge-person.jpg" alt="白馬三山縱走">
       <div class="trip-feature-body">
         <div class="eyebrow">Summer Route</div>
         <h3>白馬三山縱走</h3>
@@ -225,7 +314,5 @@ section{padding:96px 0}
     <div class="btns"><a class="btn primary" href="products.html">查看行程</a><a class="btn" href="https://www.instagram.com/wilderlife_tw/" target="_blank">Instagram 私訊</a></div>
   </div>
 </section>
-
 <footer class="footer">© 2026 WILDERLIFE 山林生活工作室｜All Rights Reserved.</footer>
-</body>
-</html>
+</body></html>
