@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wilder Outdoor Studio｜戶外活動企劃</title>
+  <style>
+    :root {
+      --forest: #273c2c;
+      --forest-2: #3f5944;
+      --earth: #8a6f4d;
+      --sand: #f3eadc;
+      --cream: #faf7ef;
+      --stone: #6f746c;
+      --dark: #1d241f;
+      --white: #ffffff;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(24, 35, 25, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+      background: rgba(250, 247, 239, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(39, 60, 44, 0.08);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--forest);
+    }
+
+    .logo span {
+      font-size: 13px;
+      display: block;
+      letter-spacing: 0.16em;
+      color: var(--stone);
+      font-weight: 500;
+      margin-top: -4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--forest);
+    }
+
+    .nav-links a:hover {
+      color: var(--earth);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(rgba(22, 34, 25, 0.52), rgba(22, 34, 25, 0.44)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--white);
+    }
+
+    .hero-content {
+      width: min(920px, 90%);
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      opacity: 0.92;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 86px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      margin-bottom: 28px;
+      max-width: 880px;
+    }
+
+    .hero p {
+      font-size: clamp(17px, 2.3vw, 23px);
+      max-width: 700px;
+      opacity: 0.94;
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--sand);
+      color: var(--forest);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: var(--white);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      margin-bottom: 42px;
+      max-width: 720px;
+    }
+
+    .label {
+      color: var(--earth);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: var(--forest);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      color: var(--stone);
+      font-size: 18px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo {
+      min-height: 430px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(39,60,44,.05), rgba(39,60,44,.05)),
+        url("https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .services {
+      background: var(--sand);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(39, 60, 44, 0.08);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 220px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--forest);
+      color: var(--sand);
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+
+    .card h3 {
+      color: var(--forest);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p, .case p {
+      color: var(--stone);
+    }
+
+    .audience-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .audience-item {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 22px;
+      color: var(--forest);
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(24, 35, 25, 0.07);
+    }
+
+    .cases {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .cases h2,
+    .cases .label {
+      color: var(--sand);
+    }
+
+    .cases .lead {
+      color: rgba(255,255,255,.76);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .case {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .case-img {
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .case:nth-child(1) .case-img {
+      background-image: url("https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .case:nth-child(2) .case-img {
+      background-image: url("https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .case:nth-child(3) .case-img {
+      background-image: url("https://images.unsplash.com/photo-1445307806294-bff7f67ff225?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .case-body {
+      padding: 26px;
+    }
+
+    .case h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .case p {
+      color: rgba(255,255,255,.72);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .quote {
+      background: var(--forest);
+      color: var(--sand);
+      border-radius: var(--radius);
+      padding: 38px;
+      font-size: 28px;
+      line-height: 1.45;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .point {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 22px 24px;
+      color: var(--forest);
+      font-weight: 700;
+      border-left: 5px solid var(--earth);
+    }
+
+    .contact {
+      padding: 0;
+      background:
+        linear-gradient(rgba(24, 35, 25, .72), rgba(24, 35, 25, .72)),
+        url("https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--white);
+    }
+
+    .contact-box {
+      padding: 110px 0;
+      text-align: center;
+      width: min(780px, 90%);
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      color: var(--white);
+    }
+
+    .contact p {
+      color: rgba(255,255,255,.82);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.68);
+      padding: 28px 0;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .case-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .audience-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        min-height: 88vh;
+      }
+
+      .cards,
+      .case-grid,
+      .audience-list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card,
+      .quote {
+        padding: 28px;
+      }
+
+      .photo {
+        min-height: 300px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">WILDER LIFE<span>OUTDOOR STUDIO</span></a>
+      <div class="nav-links">
+        <a href="#about">關於我們</a>
+        <a href="#services">服務項目</a>
+        <a href="#cases">活動案例</a>
+        <a href="#contact">聯絡我們</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content reveal">
+      <div class="eyebrow">Outdoor Experience</div>
+      <h1>一起走進山林，把戶外變成生活的一部分</h1>
+      <p>我們提供專業登山行程、戶外活動企劃、野營露營與客製化包團服務，陪你用更安心、更有溫度的方式認識自然。</p>
+      <div class="buttons">
+        <a href="#services" class="btn btn-primary">查看活動</a>
+        <a href="#contact" class="btn btn-outline">聯絡我們</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-card reveal">
+        <div class="label">About Us</div>
+        <h2>戶外不是抵達目的地，而是和夥伴一起經歷的時間。</h2>
+        <p class="lead">野外的路，有時安靜、有時辛苦，但也因為身邊有人同行，變得值得記住。我們希望透過專業的規劃、安全的帶領與細膩的活動設計，讓更多人走進山林、認識自然，也認識彼此。</p>
+      </div>
+      <div class="photo reveal" aria-label="戶外山林照片"></div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="label">Services</div>
+        <h2>從登山、露營到品牌合作，為你規劃一場剛剛好的戶外體驗。</h2>
+        <p class="lead">不只是行程安排，我們更在意節奏、安全、感受與同行的人。</p>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon">山</div>
+          <h3>專業登山行程</h3>
+          <p>適合想安全挑戰山林的新手與進階戶外愛好者。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">營</div>
+          <h3>野營露營體驗</h3>
+          <p>從營地選擇、裝備建議到活動安排，打造舒服自然的戶外時光。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">團</div>
+          <h3>客製化包團</h3>
+          <p>依照人數、體能、需求與預算，規劃專屬戶外行程。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">企</div>
+          <h3>企業團隊活動</h3>
+          <p>用戶外任務、自然體驗與團隊合作，創造共同記憶。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">影</div>
+          <h3>品牌戶外合作</h3>
+          <p>結合場域、影像與體驗，打造有故事感的戶外品牌內容。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">路</div>
+          <h3>戶外活動企劃</h3>
+          <p>從活動主題、流程設計到現場執行，提供完整企劃服務。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="label">For Who</div>
+        <h2>適合想開始，也適合想更深入戶外的你。</h2>
+      </div>
+
+      <div class="audience-list">
+        <div class="audience-item reveal">想開始接觸登山的新手</div>
+        <div class="audience-item reveal">想安排露營體驗的朋友</div>
+        <div class="audience-item reveal">想辦團隊活動的公司</div>
+        <div class="audience-item reveal">想客製化包團的家庭</div>
+        <div class="audience-item reveal">想做戶外合作的品牌</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="cases">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="label">Stories</div>
+        <h2>每一場活動，都是一次和自然重新靠近的機會。</h2>
+        <p class="lead">以下為案例區塊，可替換成你的真實活動照片、路線紀錄與客戶回饋。</p>
+      </div>
+
+      <div class="case-grid">
+        <div class="case reveal">
+          <div class="case-img"></div>
+          <div class="case-body">
+            <h3>山林入門體驗</h3>
+            <p>適合第一次接觸戶外的人，從步道、裝備到安全觀念開始。</p>
+          </div>
+        </div>
+
+        <div class="case reveal">
+          <div class="case-img"></div>
+          <div class="case-body">
+            <h3>野營露營企劃</h3>
+            <p>把露營變成一段舒服、有節奏、有記憶點的戶外生活。</p>
+          </div>
+        </div>
+
+        <div class="case reveal">
+          <div class="case-img"></div>
+          <div class="case-body">
+            <h3>客製化包團行程</h3>
+            <p>依照團體需求，設計專屬路線、活動內容與節奏。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container why-grid">
+      <div class="quote reveal">
+        三人成群，五人以上就是夥伴。<br />
+        在山林的時間裡，只留下彼此。
+      </div>
+
+      <div class="points">
+        <div class="point reveal">熟悉山林與戶外活動流程</div>
+        <div class="point reveal">重視安全、節奏與體驗品質</div>
+        <div class="point reveal">活動不制式，能依照團體調整</div>
+        <div class="point reveal">兼具專業帶領與生活感美學</div>
+        <div class="point reveal">適合新手，也適合想深入戶外的人</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-box reveal">
+      <div class="label">Contact</div>
+      <h2>想和我們一起走進戶外嗎？</h2>
+      <p>不管你想安排登山、露營、企業活動或客製化包團，都歡迎告訴我們你的想法。我們會協助你整理需求，規劃一場適合你們的戶外體驗。</p>
+      <div class="buttons" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://www.instagram.com/wilderlife_tw/" target="_blank">Instagram 私訊</a>
+        <a class="btn btn-outline" href="#">LINE 諮詢</a>
+        <a class="btn btn-outline" href="mailto:hello@example.com">Email 聯絡</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Wilder Life Outdoor Studio</div>
+      <div>Mountain｜Camping｜Outdoor Experience</div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
