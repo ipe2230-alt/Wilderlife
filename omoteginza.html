@@ -31,6 +31,18 @@ section{padding:96px 0}.section-title{text-align:center;margin-bottom:52px}.lead
 .photo-split .stack{display:grid;gap:18px}
 .photo-split .stack img{height:301px}
 @media(max-width:900px){.photo-split{grid-template-columns:1fr}.photo-split img,.photo-split .stack img{height:320px}}
+
+/* 2027 梯次日期：詳細頁每梯獨立一行 */
+.info-list{grid-template-columns:minmax(290px,1.7fr) repeat(3,minmax(0,1fr))}
+.info-item{min-width:0}
+.info-item .schedule{display:grid;gap:10px;margin-top:8px}
+.info-item .schedule-row{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.info-item .schedule-label{font-size:12px;color:var(--muted);font-weight:500}
+.info-item .schedule-date{font-size:16px;font-weight:800;line-height:1.45;color:var(--forest);white-space:nowrap;font-variant-numeric:tabular-nums}
+.info-item .schedule-note{display:block;font-size:12px;color:var(--muted);margin-top:8px}
+@media(max-width:950px){.info-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.info-list{grid-template-columns:1fr}.info-item .schedule-date{font-size:16px}}
+
 </style>
 </head>
 <body>
@@ -50,7 +62,7 @@ section{padding:96px 0}.section-title{text-align:center;margin-bottom:52px}.lead
 
 <section class="info-box">
   <div class="container info-list">
-    <div class="info-item"><b>日期</b><span>8/21（六）–8/25（三）｜9/7（二）–9/11（六）（預定）</span></div>
+    <div class="info-item"><b>日期</b><div class="schedule" aria-label="2027 年預定出團日期"><div class="schedule-row"><span class="schedule-label">第 1 梯</span><strong class="schedule-date">08/21（六）–08/25（三）</strong></div><div class="schedule-row"><span class="schedule-label">第 2 梯</span><strong class="schedule-date">09/07（二）–09/11（六）</strong></div></div><small class="schedule-note">2027 預定出團，依山屋確認為準</small></div>
     <div class="info-item"><b>天數</b><span>五天四夜</span></div>
     <div class="info-item"><b>費用</b><span>2027 團費待公告</span></div>
     <div class="info-item"><b>路線</b><span>燕岳・大天井岳・槍岳</span></div>
