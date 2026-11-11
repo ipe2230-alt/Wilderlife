@@ -27,9 +27,39 @@ section{padding:96px 0}.section-title{text-align:center;margin-bottom:52px}.lead
 @media(max-width:950px){.info-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.info-list{grid-template-columns:1fr}.info-item .schedule-date{font-size:16px}}
 
+
+/* 槍岳詳細頁：讓兩梯日期橫向獨立，避免舊四欄擠壓 */
+.yarigatake-details{padding:56px 0 42px}
+.yarigatake-details .departure-heading{text-align:left;margin-bottom:22px}
+.yarigatake-details .departure-heading h2{font-size:clamp(25px,3.4vw,39px);margin:0}
+.yarigatake-details .departure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.yarigatake-details .departure-card{min-width:0;padding:26px 28px;background:#fffaf1;border:1px solid var(--line);border-left:4px solid var(--olive);display:flex;flex-direction:column;gap:12px}
+.yarigatake-details .departure-card .departure-label{font-size:13px;font-weight:800;color:#57623d}
+.yarigatake-details .departure-card strong{font-size:clamp(18px,2.4vw,27px);line-height:1.5;font-variant-numeric:tabular-nums;color:var(--forest);overflow-wrap:anywhere}
+.yarigatake-details .departure-card>span:last-child{font-size:14px;color:var(--muted)}
+.yarigatake-details .departure-note{font-size:13px;color:var(--muted);margin:16px 0 26px}
+.yarigatake-details .departure-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.yarigatake-details .departure-meta-item{padding:20px 14px 8px 0;display:flex;flex-direction:column;gap:5px}
+.yarigatake-details .departure-meta-item b{font-size:15px;color:var(--forest)}
+.yarigatake-details .departure-meta-item span{font-size:14px;color:var(--muted)}
+@media(max-width:700px){.yarigatake-details{padding:40px 0}.yarigatake-details .departure-grid{grid-template-columns:1fr;gap:12px}.yarigatake-details .departure-card{padding:20px}.yarigatake-details .departure-card strong{font-size:21px}.yarigatake-details .departure-meta{grid-template-columns:1fr}.yarigatake-details .departure-meta-item{padding:14px 0;border-bottom:1px solid var(--line)}}
 </style></head><body><nav class="nav"><div class="container nav-inner"><a href="index.html"><img class="logo-img" src="assets/wilderlife-logo.png" alt="Wilderlife Logo"></a><div class="nav-links"><a href="index.html">Home</a><a href="products.html">Journeys</a><a href="index.html#journal">Journal</a><a href="index.html#contact">Contact</a><a class="nav-cta" href="products.html">Explore</a></div></div></nav>
 <header class="hero" style="background-image:url('assets/kamikochi-hero.jpg');background-position:center 48%"><div class="hero-content"><div class="eyebrow">Yarigatake / 2027 Autumn Journey</div><h1>上高地槍岳賞楓</h1><p>從優雅的上高地出發，穿越德澤與橫尾，走進槍澤圈谷與「日本馬特洪峰」槍岳。</p><div class="btns"><a class="btn primary" href="https://docs.google.com/forms/d/12OXtERQwyfx5rnEC6yIG3RcriCM90bBqbLMNW8iuk6k/viewform" target="_blank">Join The Journey</a><a class="btn" href="products.html">Back To Journeys</a></div></div></header>
-<section class="info-box"><div class="container info-list"><div class="info-item"><b>日期</b><div class="schedule" aria-label="2027 年預定出團日期"><div class="schedule-row"><span class="schedule-label">第 1 梯</span><strong class="schedule-date">10/08（五）–10/11（一）</strong></div><div class="schedule-row"><span class="schedule-label">第 2 梯</span><strong class="schedule-date">10/17（日）–10/20（三）</strong></div></div><small class="schedule-note">2027 預定出團，依山屋確認為準</small></div><div class="info-item"><b>天數</b><span>四天三夜</span></div><div class="info-item"><b>費用</b><span>2027 團費待公告</span></div><div class="info-item"><b>訂金</b><span>先收 50% 訂金</span></div></div></section>
+<section class="info-box yarigatake-details">
+  <div class="container">
+    <div class="departure-heading"><div class="eyebrow">2027 Departure Dates</div><h2>槍岳賞楓・預定出團日期</h2></div>
+    <div class="departure-grid">
+      <div class="departure-card"><span class="departure-label">第 1 梯</span><strong>10/08（五）– 10/11（一）</strong><span>4 天 3 夜</span></div>
+      <div class="departure-card"><span class="departure-label">第 2 梯</span><strong>10/17（日）– 10/20（三）</strong><span>4 天 3 夜</span></div>
+    </div>
+    <p class="departure-note">以上為 2027 預定日期，須待山屋、交通與路線條件確認後正式公告。</p>
+    <div class="departure-meta">
+      <div class="departure-meta-item"><b>行程天數</b><span>四天三夜</span></div>
+      <div class="departure-meta-item"><b>團費</b><span>2027 待公告</span></div>
+      <div class="departure-meta-item"><b>訂金</b><span>2027 報名辦法待公告</span></div>
+    </div>
+  </div>
+</section>
 <section><div class="container grid-2"><div><div class="eyebrow">Highlight</div><h2>在最美季節，與日本山岳靈魂深刻對話。</h2><p class="lead">秋季的北阿爾卑斯，稜線、圈谷與落葉松林會轉成深紅與橘黃。當你登上槍岳，俯瞰的是滿山遍野的金紅交織。</p></div><img class="editorial-img" src="assets/kamikochi-reflection.jpg" alt="槍岳倒影"></div></section>
 <div class="full-bleed" style="background-image:url('assets/kamikochi-yari.jpg')"><div class="full-caption"><div class="eyebrow">Yarigatake</div><h2>金紅秋色裡，看見槍岳的尖峰。</h2><p>從槍澤圈谷往上，每一步都更接近北阿爾卑斯最具象徵性的山岳輪廓。</p></div></div>
 <section class="info-box"><div class="container"><div class="section-title"><div class="eyebrow">Itinerary</div><h2>行程表</h2></div><div class="itinerary"><div class="day"><b>Day 01</b><p><strong>松本 → 上高地河童橋 → 明神 → 德澤 → 橫尾山莊</strong>平緩林道徒步，作為高海拔適應與暖身，步行約 3–4 小時。</p></div><div class="day"><b>Day 02</b><p><strong>橫尾山莊 → 槍澤山屋 → 槍岳山屋</strong>進入槍澤圈谷地形，最後碎石坡直上，步行約 7–8 小時。</p></div><div class="day"><b>Day 03</b><p><strong>槍岳山屋 → 槍岳頂峰 → 槍澤山屋</strong>清晨可看日照金山，餐後下撤至較低海拔山屋，步行約 5–6 小時。</p></div><div class="day"><b>Day 04</b><p><strong>槍澤小屋 → 橫尾 → 德澤 → 上高地河童橋 → 松本</strong>回到河童橋慶功後前往松本解散，步行約 5–6 小時。</p></div></div></div></section>
